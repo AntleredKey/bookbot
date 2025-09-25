@@ -6,9 +6,6 @@ def get_num_words(booktext):
     num_words = len(booktext.split())
     return num_words
 
-def sort_on(items):
-    return items["num"]
-
 def get_count_characters(booktext):
     lowertext = booktext.lower()
     for i in range(len(lowertext)):

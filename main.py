@@ -1,6 +1,6 @@
 from stats import get_num_words
 from stats import get_count_characters
-frankenstein = "./books/frankenstein.txt"
+import sys
 
 def get_book_text(book):
     booktext = ""
@@ -9,9 +9,12 @@ def get_book_text(book):
     return booktext
 
 def main():
-    booktext = get_book_text(frankenstein)
+    if len(sys.argv) == 1:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    booktext = get_book_text(sys.argv[1])
     print("============ BOOKBOT ============")
-    print(f"Analyzing book found at {frankenstein}...")
+    print(f"Analyzing book found at {sys.argv[1]}...")
     print("----------- Word Count ----------")
     num_words = get_num_words(booktext)
     print(f"Found {num_words} total words")
